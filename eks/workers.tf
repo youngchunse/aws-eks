@@ -294,7 +294,7 @@ resource "aws_security_group_rule" "workers_egress_internet" {
   type              = "ingress"
 }
 
-resource "aws_security_group_rule" "workers_egress_internet" {
+resource "aws_security_group_rule" "workers_ingress_internet" {
   count             = var.worker_create_security_group && var.create_eks ? 1 : 0
   description       = "Allow nodes all egress to the Internet."
   protocol          = "-1"
