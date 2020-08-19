@@ -37,11 +37,11 @@ module "my-cluster" {
   worker_groups = [
    {
      instance_type                 = "t2.small"
-     asg_desired_capacity          = 2
+     asg_desired_capacity          = 1
    },
    {
      instance_type                 = "t2.medium"
-     asg_desired_capacity          = 2
+     asg_desired_capacity          = 1
    },
  ]
 }
