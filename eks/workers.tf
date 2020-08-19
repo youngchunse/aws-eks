@@ -285,6 +285,17 @@ resource "aws_security_group" "workers" {
 
 resource "aws_security_group_rule" "workers_egress_internet" {
   count             = var.worker_create_security_group && var.create_eks ? 1 : 0
+  description       = "Allow connection from the Internet."
+  protocol          = "tcp"
+  security_group_id = local.worker_security_group_id
+  cidr_blocks       = ["0.0.0.0/0"]
+  from_port         = 80
+  to_port           = 80
+  type              = "ingress"
+}
+
+resource "aws_security_group_rule" "workers_egress_internet" {
+  count             = var.worker_create_security_group && var.create_eks ? 1 : 0
   description       = "Allow nodes all egress to the Internet."
   protocol          = "-1"
   security_group_id = local.worker_security_group_id
@@ -348,6 +359,8 @@ resource "aws_security_group_rule" "workers_ingress_cluster_primary" {
   to_port                  = 65535
   type                     = "ingress"
 }
+
+
 
 resource "aws_security_group_rule" "cluster_primary_ingress_workers" {
   count                    = var.worker_create_security_group && var.worker_create_cluster_primary_security_group_rules && var.cluster_version >= 1.14 && var.create_eks ? 1 : 0
