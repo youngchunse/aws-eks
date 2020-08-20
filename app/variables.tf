@@ -28,7 +28,7 @@ variable "cluster_enabled_log_types" {
 
 # EKS Workers variables
 
-variable "instance_size" {
+variable "instance_type" {
   description = "The size of the instances used by EKS workers ASG"
   type        = string
 }
