@@ -3,7 +3,7 @@
 #cluster_endpoint_private_access = false
 #cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
 # EKS
-cluster_name              = "nginx_app"
+cluster_name              = "flask_app"
 cluster_version           = "1.16"
 public_endpoint           = true
 private_endpoint          = false
