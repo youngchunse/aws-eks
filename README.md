@@ -1,3 +1,3 @@
 # aws-eks
 
-## Cloned from AWS Registry eks
+## Cloned from AWS Registry EKS
