@@ -5,7 +5,7 @@ provider "aws" {
 data "terraform_remote_state" "network" {
   backend = "s3"
   config = {
-    bucket = "terraform-state-demo-dev-application"
+    bucket = "terraform-state-dev-application"
     key    = "dev/us-east-1/landing-zone"
     region = "us-east-1"
   }
